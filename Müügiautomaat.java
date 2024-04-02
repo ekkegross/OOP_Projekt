@@ -1,3 +1,3 @@
-abstract class Müügiautomaat {
-
+public interface Müügiautomaat {
+    void väljastaToodeteHinnad();
 }
