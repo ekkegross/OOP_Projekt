@@ -3,9 +3,9 @@ public class Kohv {
 
     double kohviHind;
 
-    public Kohv(String kohviNimi, double kohviHing) {
+    public Kohv(String kohviNimi, double kohviHind) {
         this.kohviNimi = kohviNimi;
-        this.kohviHind = kohviHing;
+        this.kohviHind = kohviHind;
     }
 
     public String getKohviNimi() {
