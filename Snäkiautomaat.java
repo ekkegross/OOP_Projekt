@@ -6,7 +6,7 @@ public class Snäkiautomaat implements Müügiautomaat{
     List<Toode> pakutavadSnäkid;
 
     public Snäkiautomaat(List<Toode> pakutavadSnäkid) {
-        this.pakutavadSnäkid = new ArrayList<>();
+        this.pakutavadSnäkid = pakutavadSnäkid;
     }
 
     @Override

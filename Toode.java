@@ -1,7 +1,6 @@
 public class Toode {
     private String nimi;
     private double hind;
-
     private int kogus;
 
     public Toode(String nimi, double hind, int kogus) {

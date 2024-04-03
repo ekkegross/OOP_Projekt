@@ -5,7 +5,7 @@ public class Kohviautomaat implements Müügiautomaat{
     List<Kohv> pakutavadKohvid;
 
     public Kohviautomaat(List<Kohv> pakutavadKohvid) {
-        this.pakutavadKohvid = new ArrayList<>();
+        this.pakutavadKohvid = pakutavadKohvid;
     }
 
     @Override
