@@ -50,9 +50,9 @@ public class Snäkiautomaat implements Müügiautomaat {
     }
 
     private void masinaOlek() {  //Määrab ära kas masin on rikkis või mitte
-        if (getMituKordaRaputatud() > 5) {
+        if (getMituKordaRaputatud() > 5) {  //Kui masinat on üle 5 korra raputatud, siis määratakse, et masin on rikkis
             setKasMasinOnRikkis(true);
-        } else if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true);
+        } else if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true); //Kui masinat on üle 3 korra kastatud, siis kui Math.Random on suurem kui 0.9(võiks olla 10% tõenäosus) määratakse, et masin on rikkis.
     }
 
     // Raputab masinat ja määrab ära, kas masinast tuleb midagi välja või mitte
@@ -67,7 +67,7 @@ public class Snäkiautomaat implements Müügiautomaat {
         return false;
     }
 
-    // Määrab ära, milline toode saadi
+    // Määrab ära, milline toode saadi pärast raputamist
     public String misTooteSaid() {
         Toode milline = pakutavadSnäkid.get((int) Math.round(pakutavadSnäkid.size() * Math.random()));
         milline.setKogus(milline.getKogus() - 1);
