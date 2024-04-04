@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Kohviautomaat implements Müügiautomaat{
     List<Kohv> pakutavadKohvid;
@@ -20,6 +21,11 @@ public class Kohviautomaat implements Müügiautomaat{
 
     @Override
     public void sooritaOst(int tooteNumber, double raha) {
+        if(masinKatki()) {
+            System.out.println("Masin on katki, proovige hiljem uuesti!");
+            System.out.println("Raha tagasi: " + raha);
+            return;
+        }
         if (tooteNumber < 1 || tooteNumber > pakutavadKohvid.size()) {
             System.out.println("Sellist toodet ei ole olemas!");
         } else {
@@ -31,5 +37,12 @@ public class Kohviautomaat implements Müügiautomaat{
                 System.out.println("Raha tagasi: " + (raha - valitudKohv.getKohviHind()));
             }
         }
+    }
+
+    @Override
+    public boolean masinKatki() {
+        Random random = new Random();
+        int rand_int = random.nextInt(5);
+        return rand_int == 1;
     }
 }

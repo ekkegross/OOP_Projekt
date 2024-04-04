@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Snäkiautomaat implements Müügiautomaat{
 
@@ -10,6 +11,12 @@ public class Snäkiautomaat implements Müügiautomaat{
     }
     public void lisaToode(Toode toode){
         pakutavadSnäkid.add(toode);
+    }
+    @Override
+    public boolean masinKatki() {
+        Random random = new Random();
+        int rand_int = random.nextInt(3);
+        return rand_int == 1;
     }
 
     @Override
@@ -22,6 +29,11 @@ public class Snäkiautomaat implements Müügiautomaat{
     }
     @Override
     public void sooritaOst(int tooteNumber, double raha){
+        if(masinKatki()) {
+            System.out.println("Masin on katki, proovige hiljem uuesti!");
+            System.out.println("Raha tagasi: " + raha);
+            return;
+        }
         if (tooteNumber < 1 || tooteNumber > pakutavadSnäkid.size()) {
             System.out.println("Sellist toodet ei ole olemas!");
         } else {
