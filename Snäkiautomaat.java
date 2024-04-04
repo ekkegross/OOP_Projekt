@@ -55,7 +55,7 @@ public class Snäkiautomaat implements Müügiautomaat {
         } else if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true);
     }
 
-    // Raputab masinat ja määrab ära, kas masin rapub või mitte
+    // Raputab masinat ja määrab ära, kas masinast tuleb midagi välja või mitte
     public boolean raputa() {
         if (Math.random() < 0.3) {
             setMituKordaRaputatud(getMituKordaRaputatud() + 1);
