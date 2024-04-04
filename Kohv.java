@@ -7,7 +7,14 @@ public class Kohv {
     private double kohviSeguKogusL;
     private double kohviHind;
 
-    // Konstruktor
+    /**
+     * Kohvi konstruktor
+     * @param kohviNimi Kohvi nimi
+     * @param piimaKogusLiitrites Piima kogus liitrites
+     * @param kohviSeguKogusLiitrites Kohvi segu kogus liitrites
+     * @param kohviHind Kohvi hind
+     */
+
     public Kohv(String kohviNimi, double piimaKogusLiitrites, double kohviSeguKogusLiitrites, double kohviHind) {
         this.kohviNimi = kohviNimi;
         this.piimaKogusL = piimaKogusLiitrites;

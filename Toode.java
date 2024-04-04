@@ -6,7 +6,12 @@ public class Toode {
     private double hind;
     private int kogus;
 
-    // Konstruktor
+    /**
+     * Toote konstruktor
+     * @param nimi Toote nimi
+     * @param hind Toote hind
+     * @param kogus Toote kogus
+     */
     public Toode(String nimi, double hind, int kogus) {
         this.nimi = nimi;
         this.hind = hind;

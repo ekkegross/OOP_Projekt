@@ -12,7 +12,11 @@ public class Kohviautomaat implements Müügiautomaat {
     private boolean kasMasinOnRikkis; //true-masin on rikkis, false-masin on terve
     private int mituKordaKasutatud;
 
-    // Konstruktor
+    /**
+     * Kohviautomaadi konstruktor
+     * @param piimaKogusLiitrites Piima kogus liitrites
+     * @param kohviSeguKogusLiitrites Kohvi segu kogus liitrites
+     */
     public Kohviautomaat(double piimaKogusLiitrites, double kohviSeguKogusLiitrites) {
         this.piimaKogusLiitrites = piimaKogusLiitrites;
         this.kohviSeguKogusLiitrites = kohviSeguKogusLiitrites;

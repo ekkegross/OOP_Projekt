@@ -1,5 +1,5 @@
 /**
- * Interface, mis kirjeldab müügiautomaadi funktsionaalsust.
+ * Liides, mis kirjeldab müügiautomaadi funktsionaalsust.
  */
 public interface Müügiautomaat {
     void väljastaToodeteHinnad();

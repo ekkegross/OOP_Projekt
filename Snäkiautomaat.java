@@ -11,7 +11,9 @@ public class Snäkiautomaat implements Müügiautomaat {
     private int mituKordaKasutatud;
     private int mituKordaRaputatud;
 
-    // Konstruktor
+    /**
+     * Snäkiautomaadi konstruktor
+     */
     public Snäkiautomaat() {
         this.mituKordaKasutatud = 0;
         this.mituKordaRaputatud = 0;

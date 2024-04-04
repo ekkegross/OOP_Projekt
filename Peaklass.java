@@ -29,7 +29,14 @@ public class Peaklass {
         // loome skänneri ja küsime kasutajalt raha
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisestage palju teil raha on: ");
-        double raha = scanner.nextDouble();
+        double raha;
+        // kontrollime, kas kasutaja sisestas numbri
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Vale sisend");
+            System.out.println("Sisestage palju teil raha on: ");
+            scanner.next();
+        }
+        raha = scanner.nextDouble();
         if (raha < 0) {
             System.out.println("Sisestasite negatiivse summa, proovige uuesti: ");
             raha = scanner.nextDouble();
@@ -40,7 +47,18 @@ public class Peaklass {
             System.out.println("Sisestage '1' kui soovite kasutada kohviautomaati");
             System.out.println("Sisestage '2' kui soovite kasutada snäkiautomaati");
             System.out.println("Sisestage '3' kui soovite lõpetada");
-            int valik = scanner.nextInt();
+
+            int valik;
+
+            // kontrollime, kas kasutaja sisestas numbri
+            while (!scanner.hasNextInt()) {
+                System.out.println("Vale sisend");
+                System.out.println("Sisestage '1' kui soovite kasutada kohviautomaati");
+                System.out.println("Sisestage '2' kui soovite kasutada snäkiautomaati");
+                System.out.println("Sisestage '3' kui soovite lõpetada");
+                scanner.next();
+            }
+            valik = scanner.nextInt();
 
             // kui kasutaja soovib lõpetada, siis lõpetame programmi
             if (valik == 3) break;
