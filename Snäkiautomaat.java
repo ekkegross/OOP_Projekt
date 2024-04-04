@@ -52,7 +52,7 @@ public class Snäkiautomaat implements Müügiautomaat {
     private void masinaOlek() {  //Määrab ära kas masin on rikkis või mitte
         if (getMituKordaRaputatud() > 5) {  //Kui masinat on üle 5 korra raputatud, siis määratakse, et masin on rikkis
             setKasMasinOnRikkis(true);
-        } else if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true); //Kui masinat on üle 3 korra kastatud, siis kui Math.Random on suurem kui 0.9(võiks olla 10% tõenäosus) määratakse, et masin on rikkis.
+        } else if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true); //Kui masinat on üle 3 korra kasutatud, ja kui Math.Random on suurem kui 0.9(võiks olla 10% tõenäosus), siis määratakse, et masin on rikkis.
     }
 
     // Raputab masinat ja määrab ära, kas masinast tuleb midagi välja või mitte

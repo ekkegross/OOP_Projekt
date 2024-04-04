@@ -62,7 +62,7 @@ public class Kohviautomaat implements Müügiautomaat {
     }
 
     private void masinaOlek() {  //Määrab ära, kas masin on rikkis või mitte tõenäosuse järgi.
-        if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true);
+        if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true); //Kui masinat on üle 3 korra kasutatud ja kui Math.Random on suurem kui 0.9(võiks olla 10% tõenäosus), siis määratakse, et masin on rikkis.
     }
 
     // Meetod, mis väljastab kohvide hinnad
