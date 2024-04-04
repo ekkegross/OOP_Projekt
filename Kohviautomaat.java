@@ -1,13 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kohviautomaat implements Müügiautomaat{
+/**
+ * Kohviautomaadi klass, mis implementeerib müügiautomaadi liidest.
+ */
+
+public class Kohviautomaat implements Müügiautomaat {
     private List<Kohv> pakutavadKohvid;
     private double piimaKogusLiitrites;
     private double kohviSeguKogusLiitrites;
     private boolean kasMasinOnRikkis; //true-masin on rikkis, false-masin on terve
     private int mituKordaKasutatud;
 
+    // Konstruktor
     public Kohviautomaat(double piimaKogusLiitrites, double kohviSeguKogusLiitrites) {
         this.piimaKogusLiitrites = piimaKogusLiitrites;
         this.kohviSeguKogusLiitrites = kohviSeguKogusLiitrites;
@@ -15,10 +20,14 @@ public class Kohviautomaat implements Müügiautomaat{
         this.kasMasinOnRikkis = false;
         this.mituKordaKasutatud = 0;
     }
-    public void lisaKohv(Kohv kohv){
+
+    // Lisame kohvi masinasse
+    public void lisaKohv(Kohv kohv) {
         pakutavadKohvid.add(kohv);
     }
 
+
+    // Get ja set meetodid
     public double getPiimaKogusLiitrites() {
         return piimaKogusLiitrites;
     }
@@ -52,60 +61,66 @@ public class Kohviautomaat implements Müügiautomaat{
         this.mituKordaKasutatud = mituKordaKasutatud;
     }
 
-    private void masinaOlek(){  //Määrab ära, kas masin on rikkis või mitte tõenäosuse järgi.
-        if(getMituKordaKasutatud()>3&&Math.random()>0.9) setKasMasinOnRikkis(true);
+    private void masinaOlek() {  //Määrab ära, kas masin on rikkis või mitte tõenäosuse järgi.
+        if (getMituKordaKasutatud() > 3 && Math.random() > 0.9) setKasMasinOnRikkis(true);
     }
 
+    // Meetod, mis väljastab kohvide hinnad
     @Override
     public void väljastaToodeteHinnad() {
-        if (getKasMasinOnRikkis()){
+        if (getKasMasinOnRikkis()) { // Kui masin on rikkis, siis väljume meetodist
             System.out.println("Masin on rikkis! Vabandame");
             return;
         }
-        for (Kohv elem : pakutavadKohvid){
-            if(elem.getPiimaKogusL()>getPiimaKogusLiitrites()) System.out.println(elem.getKohviNimi() + " - " + elem.getKohviHind() + " Vabandame, aga hetkel pole piisavalt piima selle kohvi valmistamiseks.");
-            else if (elem.getKohviSeguKogusL()>getKohviSeguKogusLiitrites()) System.out.println(elem.getKohviNimi() + " - " + elem.getKohviHind() + " Vabandame, aga hetkel pole piisavalt segu kohvi valmistamiseks.");
-            else System.out.println(elem.getKohviNimi() + " - " + elem.getKohviHind());
+        int number = 1;
+        for (Kohv elem : pakutavadKohvid) {
+            if (elem.getPiimaKogusL() > getPiimaKogusLiitrites()) // Kui pole piisavalt piima, siis väljastame vastava teate
+                System.out.println(elem.getKohviNimi() + " - " + elem.getKohviHind() + " Vabandame, aga hetkel pole piisavalt piima selle kohvi valmistamiseks.");
+            else if (elem.getKohviSeguKogusL() > getKohviSeguKogusLiitrites()) // Kui pole piisavalt segu, siis väljastame vastava teate
+                System.out.println(elem.getKohviNimi() + " - " + elem.getKohviHind() + " Vabandame, aga hetkel pole piisavalt segu kohvi valmistamiseks.");
+            else System.out.println(number + ". " + elem.getKohviNimi() + " - " + elem.getKohviHind()); // Väljastame kohvi nime ja hinna
+            number++;
         }
     }
 
+    // Meetod, mis valmistab kohvi vastavalt valitud kohvile
     @Override
     public double sooritaOst(int tooteNumber, double raha) {
-        if (getKasMasinOnRikkis()){
+        if (getKasMasinOnRikkis()) { // Kui masin on rikkis, siis väljume meetodist
             System.out.println("Masin on rikkis! Vabandame");
             return raha;
         }
 
-        if (tooteNumber < 1 || tooteNumber > pakutavadKohvid.size()) {
+        if (tooteNumber < 1 || tooteNumber > pakutavadKohvid.size()) { // Kontrollime, kas valitud toode on olemas
             System.out.println("Sellist toodet ei ole olemas!");
             return raha;
         } else {
             Kohv valitudKohv = pakutavadKohvid.get(tooteNumber - 1);
-            if (raha < valitudKohv.getKohviHind()) {
+            if (raha < valitudKohv.getKohviHind()) { // Kontrollime, kas raha on piisavalt
                 System.out.println("Raha ei ole piisavalt!");
                 return raha;
-            } else if (valitudKohv.getKohviSeguKogusL()>getKohviSeguKogusLiitrites()) {
+            } else if (valitudKohv.getKohviSeguKogusL() > getKohviSeguKogusLiitrites()) { // Kontrollime, kas on piisavalt segu ja piima
                 System.out.println("Pole piisavalt segu kohvi valmistamiseks. Valige mõni muu kohv.");
                 return raha;
-            } else if (valitudKohv.getPiimaKogusL()>getPiimaKogusLiitrites()) {
+            } else if (valitudKohv.getPiimaKogusL() > getPiimaKogusLiitrites()) {
                 System.out.println("Pole piisavalt piima kohvi valmistamiseks. Valige mõni muu kohv.");
                 return raha;
-            } else {
-                setKohviSeguKogusLiitrites(getKohviSeguKogusLiitrites()-valitudKohv.getKohviSeguKogusL());
-                setPiimaKogusLiitrites(getPiimaKogusLiitrites()-valitudKohv.getPiimaKogusL());
+            } else { // Kui kõik on korras, siis valmistame kohvi
+                setKohviSeguKogusLiitrites(getKohviSeguKogusLiitrites() - valitudKohv.getKohviSeguKogusL());
+                setPiimaKogusLiitrites(getPiimaKogusLiitrites() - valitudKohv.getPiimaKogusL());
                 System.out.println("Kohv valmistatud!");
                 System.out.println("Raha tagasi: " + (raha - valitudKohv.getKohviHind()));
-                setMituKordaKasutatud(getMituKordaKasutatud()+1);
+                setMituKordaKasutatud(getMituKordaKasutatud() + 1);
                 masinaOlek();
-                return raha-valitudKohv.getKohviHind();
+                return raha - valitudKohv.getKohviHind();
             }
         }
     }
 
     @Override
     public boolean kontroll(double raha) {   //Kas on piisavalt raha, et midagi osta. Kui ei ole tagastab true.
-        for(Kohv elem:pakutavadKohvid){
-            if(raha>elem.getKohviHind()) return false;
+        for (Kohv elem : pakutavadKohvid) {
+            if (raha > elem.getKohviHind()) return false;
         }
         return true;
     }

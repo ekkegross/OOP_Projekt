@@ -1,9 +1,13 @@
+/**
+ * Klass Kohv
+ */
 public class Kohv {
     private String kohviNimi;
     private double piimaKogusL;
     private double kohviSeguKogusL;
     private double kohviHind;
 
+    // Konstruktor
     public Kohv(String kohviNimi, double piimaKogusLiitrites, double kohviSeguKogusLiitrites, double kohviHind) {
         this.kohviNimi = kohviNimi;
         this.piimaKogusL = piimaKogusLiitrites;
@@ -11,6 +15,7 @@ public class Kohv {
         this.kohviHind = kohviHind;
     }
 
+    // Get ja set meetodid
     public String getKohviNimi() {
         return kohviNimi;
     }

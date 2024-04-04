@@ -1,14 +1,19 @@
+/**
+ * Klass Toode
+ */
 public class Toode {
     private String nimi;
     private double hind;
     private int kogus;
 
+    // Konstruktor
     public Toode(String nimi, double hind, int kogus) {
         this.nimi = nimi;
         this.hind = hind;
         this.kogus = kogus;
     }
 
+    // Get ja set meetodid
     public String getNimi() {
         return nimi;
     }
