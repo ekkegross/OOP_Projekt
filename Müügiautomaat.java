@@ -1,5 +1,5 @@
 public interface Müügiautomaat {
     void väljastaToodeteHinnad();
-    void sooritaOst(int tooteNumber, double raha);
-    boolean masinKatki();
+    double sooritaOst(int tooteNumber, double raha);
+    boolean kontroll(double raha);
 }
