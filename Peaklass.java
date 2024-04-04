@@ -74,6 +74,10 @@ public class Peaklass {
                     System.out.println("Kas soovite veel kohvi osta? jah/ei");
                     String vastus = scanner.next();
                     if (vastus.equals("ei")) break;
+                    if (!vastus.equals("jah")) {
+                        System.out.println("Vale sisend");
+                        break;
+                    }
                 }
                 // kui kasutaja soovib kasutada snäkiautomaati, siis küsime kasutajalt, millist toodet ta soovib
             } else if (valik == 2) {
@@ -128,6 +132,10 @@ public class Peaklass {
                     System.out.println("Kas soovite veel osta? jah/ei");
                     String vastus = scanner.next();
                     if (vastus.equals("ei")) break;
+                    if (!vastus.equals("jah")) {
+                        System.out.println("Vale sisend");
+                        break;
+                    }
                 }
             } else System.out.println("Vale sisend");
         }
