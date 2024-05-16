@@ -1,8 +1,60 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.awt.*;
+import java.lang.classfile.Label;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Peaklass {
+public class Peaklass extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        VBox vbox = new VBox();
+        Label valitudToode = new Label("Toodet pole valitud");
+        Label hind = new Label("");
+
+        for (int i = 0; i < PRODUCTS.length; i++) {
+            String product = PRODUCTS[i];
+            double price = PRICES[i];
+
+            Button productButton = new Button(product);
+            productButton.setOnAction(e -> {
+                valitudToode.setText("Valitud toode: " + product);
+                hind.setText("Hind: " + price + " €");
+            });
+
+            vbox.getChildren().add(productButton);
+        }
+
+        vbox.getChildren().addAll(valitudToode, hind);
+
+        Scene scene = new Scene(vbox, 200, 200);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private Scene esimeneStseen() {
+
+        s.setTitle("Palju raha sul on?");
+
+        TextField b = new TextField();
+
+        StackPane r = new StackPane();
+
+        r.getChildren().add(b);
+
+        Scene sc = new Scene(r, 200, 200);
+
+        s.setScene(sc);
+
+        s.show();
+    }
+    }
+    
     public static void main(String[] args) {
 
         // loome snäkiautomaadi ja lisame tooted
